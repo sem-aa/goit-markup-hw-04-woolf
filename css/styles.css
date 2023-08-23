@@ -145,7 +145,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--acive-color);
+  background-color: var(--brand-color);
+
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -153,9 +154,9 @@ button {
   transition: background-color var(--transition-dur-and-func);
 }
 
-.social-link:hover, 
+.social-link:hover,
 .social-link:focus {
-  background-color: var(--success-color);
+  background-color: var(--acive-color);
 }
 
 .social-icons {
@@ -315,6 +316,8 @@ button {
   align-items: center;
   justify-content: center;
   height: 112px;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 /* ===== /ADVANTAGES ===== */
 
@@ -415,7 +418,11 @@ button {
 
 .footer-flex {
   display: flex;
-  gap: 120px;
+  align-items: baseline;
+}
+
+.footer-block-first {
+  margin-right: 120px;
 }
 
 .logo-footer {
@@ -490,12 +497,24 @@ button {
 
 .examples-item {
   flex-basis: calc((100% - 24px * 2) / 3);
+  transition: box-shadow var(--transition-dur-and-func);
 }
 
 .examples-item:hover {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.examples-link {
+  display: block;
+  transform: box-shadow var(--transition-dur-and-func);
+}
+
+.examples-link:hover,
+.examples-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .examples-overlay-container {
@@ -514,7 +533,8 @@ button {
   transition: transform var(--transition-dur-and-func);
 }
 
-.examples-item:hover .examples-overlay {
+.examples-item:hover .examples-overlay,
+.examples-item:focus .examples-overlay {
   transform: translateY(0%);
 }
 
@@ -523,7 +543,13 @@ button {
   border-left: 1px solid var(--accent-color);
   border-right: 1px solid var(--accent-color);
   border-bottom: 1px solid var(--accent-color);
+  transition: border-color var(--transition-dur-and-func);
 }
+
+.example-description:hover {
+  border-color: var(--light-bg-color);
+}
+
 /* ===== /EXAMPLES ===== */
 
 /* !!!===== /PORTFOLIO ======!!! */
@@ -534,6 +560,8 @@ button {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: opacity var(--transition-dur-and-func),
+    visibility var(--transition-dur-and-func);
 }
 
 .backdrop {
@@ -552,14 +580,19 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   border-radius: 4px;
   background: var(--modal-bg-color);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  transition: transform var(--transition-dur-and-func);
 }
 
 .btn-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   position: absolute;
   top: 24px;
   right: 24px;
@@ -569,6 +602,7 @@ button {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: background-color var(--transition-dur-and-func);
 }
 
 .btn-close-icon {
@@ -576,6 +610,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: fill var(--transition-dur-and-func);
 }
 
 .btn-close:hover .btn-close-icon,
