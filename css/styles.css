@@ -12,6 +12,7 @@
   --hero-bg-color: #2e2f42;
   --white-color: #ffffff;
   --modal-bg-color: #fcfcfc;
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*===== /VARIABLES ===== */
 
@@ -133,6 +134,27 @@ button {
   color: var(--primary-text-color);
 }
 
+.social-item {
+  position: relative;
+  background-color: var(--acive-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--transition-dur-and-func);
+}
+
+.social-item:hover {
+  background-color: var(--success-color);
+}
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* ===== /COMPONENTS ===== */
 
 /* !!!===== MAIN PAGE ======!!! */
@@ -161,6 +183,22 @@ button {
   gap: 40px;
 }
 
+.menu .active {
+  color: var(--acive-color);
+  position: relative;
+}
+
+.active::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--acive-color);
+  border-radius: 4px;
+}
+
 .list-address {
   display: flex;
   gap: 40px;
@@ -174,6 +212,7 @@ button {
   line-height: 1.5;
   font-weight: 500;
   color: var(--dark-color);
+  transition: color var(--transition-dur-and-func);
 }
 
 .menu-link:hover,
@@ -183,6 +222,7 @@ button {
 
 .address-link {
   color: var(--primary-text-color);
+  transition: color var(--transition-dur-and-func);
 }
 
 .address-link:hover,
@@ -196,6 +236,12 @@ button {
   padding-top: 188px;
   padding-bottom: 188px;
   background-color: var(--dark-color);
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/main_page/hero-bg.jpg);
+  background-size: cover;
 }
 
 .hero-title {
@@ -226,6 +272,7 @@ button {
   border: none;
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-dur-and-func);
 }
 
 .hero-btn:hover,
@@ -242,6 +289,13 @@ button {
 
 .advantages-item {
   flex-basis: calc((100% - 24px * 3) / 4);
+}
+
+.advantages-img-container {
+  background-color: var(--light-bg-color);
+  padding: 24px 100px;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 /* ===== /ADVANTAGES ===== */
 
@@ -270,10 +324,15 @@ button {
   gap: 24px;
 }
 .team-description {
-  padding: 32px 0;
+  padding: 32px 16px;
 }
 
 .team-description .section-text {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.team-item .section-subtitle {
   text-align: center;
 }
 
@@ -288,21 +347,55 @@ button {
   background-color: var(--white-color);
 }
 
-.team-item .section-subtitle {
-  text-align: center;
-}
-
-.description-item .section-text {
-  text-align: center;
+.team-social-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ===== /OUR TEAM ===== */
+
+/* ===== CUSTOMERS ===== */
+.customers-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.customers-item {
+  padding: 16px 32px;
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color var(--transition-dur-and-func);
+}
+
+.customers-item:hover,
+.customers-item:focus {
+  border-color: var(--acive-color);
+}
+
+.customers-icon {
+  fill: var(--secondary-text-color);
+  transition: fill var(--transition-dur-and-func);
+}
+
+.customers-item:hover .customers-icon,
+.customers-item:focus .customers-icon {
+  fill: var(--acive-color);
+}
+
+/* ===== /CUSTOMERS ===== */
 
 /* ===== FOOTER ===== */
 .page-footer {
   padding-top: 100px;
   padding-bottom: 100px;
   background-color: var(--dark-color);
+}
+
+.footer-flex {
+  display: flex;
+  gap: 120px;
 }
 
 .logo-footer {
@@ -313,6 +406,15 @@ button {
 .text-footer {
   color: var(--light-bg-color);
   max-width: 264px;
+}
+.text-social {
+  color: var(--light-bg-color);
+  margin-bottom: 16px;
+}
+
+.footer-social-list {
+  display: flex;
+  gap: 16px;
 }
 /* ===== /FOOTER ===== */
 /* !!!===== /MAIN PAGE ======!!! */
@@ -339,16 +441,17 @@ button {
 
   border: 1px solid var(--accent-color);
   border-radius: 4px;
+  transition: background-color var(--transition-dur-and-func),
+    color var(--transition-dur-and-func),
+    box-shadow var(--transition-dur-and-func),
+    border var(--transition-dur-and-func);
 }
 
 .filter-btn:hover,
 .filter-btn:focus {
   border: 1px solid transparent;
-
   color: var(--white-color);
   background-color: var(--acive-color);
-  font-weight: 500;
-  letter-spacing: 0.04em;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -369,6 +472,32 @@ button {
   flex-basis: calc((100% - 24px * 2) / 3);
 }
 
+.examples-item:hover {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.examples-overlay-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.examples-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 40px 32px;
+  background-color: var(--brand-color);
+  color: var(--light-bg-color);
+  transform: translateY(100%);
+  transition: transform var(--transition-dur-and-func);
+}
+
+.examples-item:hover .examples-overlay {
+  transform: translateY(0%);
+}
+
 .example-description {
   padding: 32px 16px 32px 16px;
   border-left: 1px solid var(--accent-color);
@@ -378,3 +507,66 @@ button {
 /* ===== /EXAMPLES ===== */
 
 /* !!!===== /PORTFOLIO ======!!! */
+
+/* !!!===== MODAL ======!!! */
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  height: 584px;
+  border-radius: 4px;
+  background: var(--modal-bg-color);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+}
+
+.btn-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: var(--accent-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.btn-close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-close:hover .btn-close-icon,
+.btn-close:focus .btn-close-icon {
+  fill: white;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+  background-color: var(--acive-color);
+  border: transparent;
+}
+
+/* !!!===== MODAL ======!!! */
