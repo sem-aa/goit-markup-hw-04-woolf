@@ -382,28 +382,36 @@ button {
 .customers-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
 }
 .customers-item {
-  padding: 16px 32px;
+  width: calc((100% - 120px) / 6);
+  height: 88px;
+}
+
+.customers-link {
+  height: 100%;
+  width: 100%;
   border: 1px solid var(--secondary-text-color);
   border-radius: 4px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: border-color var(--transition-dur-and-func);
+  cursor: pointer;
 }
 
-.customers-item:hover,
-.customers-item:focus {
+.customers-link:hover,
+.customers-link:focus {
   border-color: var(--acive-color);
 }
-
 .customers-icon {
   fill: var(--secondary-text-color);
   transition: fill var(--transition-dur-and-func);
 }
 
-.customers-item:hover .customers-icon,
-.customers-item:focus .customers-icon {
+.customers-link:hover .customers-icon,
+.customers-link:focus .customers-icon {
   fill: var(--acive-color);
 }
 
@@ -560,8 +568,6 @@ button {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: opacity var(--transition-dur-and-func),
-    visibility var(--transition-dur-and-func);
 }
 
 .backdrop {
@@ -572,6 +578,8 @@ button {
   height: 100%;
   z-index: 999;
   background-color: rgba(46, 47, 66, 0.4);
+  transform: opacity var(--transition-dur-and-func),
+    visibility var(--transition-dur-and-func);
 }
 
 .modal {
@@ -602,7 +610,8 @@ button {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background-color var(--transition-dur-and-func);
+  transition: background-color var(--transition-dur-and-func),
+    border var(--transition-dur-and-func);
 }
 
 .btn-close-icon {
@@ -621,7 +630,7 @@ button {
 .btn-close:hover,
 .btn-close:focus {
   background-color: var(--acive-color);
-  border: transparent;
+  border: none;
 }
 
 /* !!!===== MODAL ======!!! */
