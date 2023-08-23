@@ -136,15 +136,25 @@ button {
 
 .social-item {
   position: relative;
-  background-color: var(--acive-color);
   width: 40px;
   height: 40px;
+}
+
+.social-link {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--acive-color);
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color var(--transition-dur-and-func);
 }
 
-.social-item:hover {
+.social-link:hover, 
+.social-link:focus {
   background-color: var(--success-color);
 }
 
@@ -153,6 +163,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  fill: var(--light-bg-color);
 }
 
 /* ===== /COMPONENTS ===== */
@@ -167,6 +178,9 @@ button {
 
 .header-border {
   border-bottom: 1px solid var(--accent-color);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
 .logo-header {
@@ -190,13 +204,13 @@ button {
 
 .active::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   content: "";
   display: block;
   height: 4px;
   width: 100%;
   background-color: var(--acive-color);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .list-address {
@@ -235,6 +249,7 @@ button {
 .hero {
   padding-top: 188px;
   padding-bottom: 188px;
+  max-width: 1440px;
   background-color: var(--dark-color);
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
@@ -242,6 +257,8 @@ button {
     ),
     url(../images/main_page/hero-bg.jpg);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-title {
@@ -284,6 +301,7 @@ button {
 /* ===== ADVANTAGES ===== */
 .advantages-list {
   display: flex;
+
   gap: 24px;
 }
 
@@ -293,9 +311,10 @@ button {
 
 .advantages-img-container {
   background-color: var(--light-bg-color);
-  padding: 24px 100px;
-  border-radius: 4px;
-  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
 }
 /* ===== /ADVANTAGES ===== */
 
@@ -324,7 +343,7 @@ button {
   gap: 24px;
 }
 .team-description {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 
 .team-description .section-text {
@@ -349,8 +368,9 @@ button {
 
 .team-social-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 24px;
 }
 
 /* ===== /OUR TEAM ===== */
