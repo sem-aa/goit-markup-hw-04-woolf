@@ -397,16 +397,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color var(--transition-dur-and-func);
+  transition: border-color var(--transition-dur-and-func),
+    color var(--transition-dur-and-func);
+  color: var(--secondary-text-color);
   cursor: pointer;
 }
 
 .customers-link:hover,
 .customers-link:focus {
   border-color: var(--acive-color);
+  color: var(--acive-color);
 }
 .customers-icon {
-  fill: var(--secondary-text-color);
+  fill: currentColor;
   transition: fill var(--transition-dur-and-func);
 }
 
@@ -445,12 +448,19 @@ button {
 .text-social {
   color: var(--light-bg-color);
   margin-bottom: 16px;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .footer-social-list {
   display: flex;
   gap: 16px;
 }
+
+.footer-social-link:hover {
+  background-color: var(--success-color);
+}
+
 /* ===== /FOOTER ===== */
 /* !!!===== /MAIN PAGE ======!!! */
 
